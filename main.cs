@@ -5,26 +5,38 @@ class Program {
     Console.WriteLine("Enter the denomination of the Philippine Bank Note (Bills and Coins): ");
     string input = Console.ReadLine();
     
-    if (double.TryParse(input, out double denomination))
+    if (decimal.TryParse(input, out decimal denomination))
         {
             string personality = GetPersonality(denomination);
             if (personality != null)
             {
                 Console.WriteLine($"Personality found: {personality}");
             }
-            else
+          else 
             {
-                Console.WriteLine("No person found for the given denomination.");
+                Console.WriteLine("Invalid Denomination. Please enter a valid denomination.");
             }
         }
         else
         {
-            Console.WriteLine($"Invalid Denomination: {input}");
+            Console.WriteLine($"Invalid input: {input}");
         }
     }
-     static string GetPersonality(double denomination)
+     static string GetPersonality(decimal denomination)
         {
-            if (denomination == 1)
+            if (denomination == 0.01m)
+            {
+                return "No person found";
+            }
+            else if (denomination == 0.05m)
+            {
+                return "No person found";
+            }
+            else if (denomination == 0.25m)
+            {
+                return "No person found";
+            }
+            else if (denomination == 1)
             {
                 return "Jose Rizal";
             }
